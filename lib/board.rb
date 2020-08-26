@@ -23,6 +23,29 @@ class Board
         @grid.flatten.count(:S)
     end
 
+    def attack(pos)
+        if self[pos] == :S 
+            self[pos] = :H 
+            puts 'you sunk my battleship!'
+            return true
+        else
+            self[pos] = :X
+            return false
+        end
+    end
+
+    def place_random_ships
+        ships_25 = (0.25 * self.size) + 2.5
+
+        ships_25.to_i.times do |x|
+            row = rand(0...@grid.length)
+            col = rand(0...@grid.length)
+            pos = [row,col]
+            self[pos] = :S
+        end
+
+    end
+
 
   
 end
