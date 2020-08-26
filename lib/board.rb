@@ -8,7 +8,19 @@ class Board
     end
 
     def [](arr)
+        
+       r,c = arr
+        @grid[r][c]
 
+    end
+
+    def []=(pos,val)
+        r,c = pos
+        @grid[r][c] = val
+    end
+
+    def num_ships
+        @grid.flatten.count(:S)
     end
 
 
