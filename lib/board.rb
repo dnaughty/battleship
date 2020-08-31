@@ -35,7 +35,7 @@ class Board
     end
 
     def place_random_ships
-        ships_25 = (0.25 * self.size) + 2.5
+        ships_25 = ((0.25 * self.size)) + 2
 
         ships_25.to_i.times do |x|
             row = rand(0...@grid.length)
@@ -45,6 +45,20 @@ class Board
         end
 
     end
+
+    def hidden_ships_grid
+        @grid.map do |row|
+          row.map do |ele|
+            if ele == :S
+              :N
+            else
+              ele
+            end
+          end
+        end
+      end
+
+    
 
 
   
