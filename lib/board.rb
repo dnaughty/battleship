@@ -35,16 +35,16 @@ class Board
     end
 
     def place_random_ships
-        ships_25 = ((0.25 * self.size)) 
-
-        ships_25.to_i.times do |x|
-            row = rand(0...@grid.length)
-            col = rand(0...@grid.length)
-            pos = [row,col]
-            self[pos] = :S
-        end
-
+      max_ships = 0.25 * self.size
+  
+      while self.num_ships < max_ships
+        row = rand(0...@grid.length)
+        col = rand(0...@grid.length)
+        pos = [row, col]
+        self[pos] = :S
+      end
     end
+  
 
     def hidden_ships_grid
         @grid.map do |row|
@@ -59,11 +59,18 @@ class Board
       end
 
       def self.print_grid(arr)
-        print arr
+        arr.each { |x| puts x.join(" ")}
+      end
 
+      def cheat
+        Board.print_grid(@grid)
+      end
 
+      def print
+        Board.print_grid(hidden_ships_grid)
 
       end
+
 
     
 
