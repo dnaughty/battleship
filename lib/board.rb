@@ -35,7 +35,7 @@ class Board
     end
 
     def place_random_ships
-        ships_25 = ((0.25 * self.size)) + 2
+        ships_25 = ((0.25 * self.size)) 
 
         ships_25.to_i.times do |x|
             row = rand(0...@grid.length)
@@ -56,6 +56,13 @@ class Board
             end
           end
         end
+      end
+
+      def self.print_grid(arr)
+        print arr
+
+
+
       end
 
     
