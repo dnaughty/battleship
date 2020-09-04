@@ -5,12 +5,9 @@ class Player
         print 'enter a position with coordinates separated with a space like `4 7`'
         input = gets.chomp
         
-        narr = []
-        input.split(",").each do |x|
-            narr << x.to_i
-        end
-
-        narr
+        
+        input.split(" ").map { |x| x.to_i }
+         
        
 
 
